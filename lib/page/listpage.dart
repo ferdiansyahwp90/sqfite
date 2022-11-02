@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './crud.dart';
 import 'package:provider/provider.dart';
 
 import '../models/task.dart';
@@ -33,8 +34,21 @@ class _MyListPageState extends State<MyListPage> {
               child: ListView.builder(
                 itemCount: context.watch<Tasklist>().taskList.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(context.watch<Tasklist>().taskList[index].name),
+                  return InkWell(
+                    onTap: () => {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => crudTaskPage(
+                                  taskName: context
+                                      .watch<Tasklist>()
+                                      .taskList[index]
+                                      .name)))
+                    },
+                    child: ListTile(
+                      title:
+                          Text(context.watch<Tasklist>().taskList[index].name),
+                    ),
                   );
                 },
               ),

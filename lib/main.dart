@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => const MyListPage(),
         "/addTask": (context) => const AddTaskPage(),
       },
-      initialRoute: "/",
+      initialRoute: "/",    
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
